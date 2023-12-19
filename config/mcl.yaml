@@ -29,10 +29,14 @@ backbone:
 classifier:
   name: MCL
   kwargs:
-    encoding: Grid
+    encoding: Grid-3,2
     gamma: 20.0
     gamma2: 10.0
     katz_factor: 0.5
+
+way_num: 5
+shot_num: 1
+query_num: 8
 
 epoch: 30
 train_episode: 20000

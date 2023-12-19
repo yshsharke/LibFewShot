@@ -71,9 +71,9 @@ class MCLLayer(nn.Module):
         """
         if self.encoding == "FCN":
             support_feat, query_feat = self._encoding_FCN(support_feat), self._encoding_FCN(query_feat)
-        elif self.encoding == "Grid":
+        elif self.encoding.startswith("Grid"):
             support_feat, query_feat = self._encoding_Grid(support_feat), self._encoding_Grid(query_feat)
-        elif self.encoding == "PyramidFCN":
+        elif self.encoding.startswith("PyramidFCN"):
             support_feat, query_feat = self._encoding_PyramidFCN(support_feat), self._encoding_PyramidFCN(query_feat)
 
         b, q, c, h, w = query_feat.size()
