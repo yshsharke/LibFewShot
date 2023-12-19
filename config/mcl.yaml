@@ -1,0 +1,53 @@
+includes:
+  - headers/data.yaml
+  - headers/device.yaml
+  - headers/misc.yaml
+  - headers/model.yaml
+  - headers/optimizer.yaml
+  - classifiers/MCL.yaml
+  - backbones/Conv64F.yaml
+
+backbone:
+  name: Conv64F
+  kwargs:
+    is_flatten: False
+    is_feature: False
+    leaky_relu: True
+    negative_slope: 0.2
+    last_pool: True
+    maxpool_last2: True
+
+#backbone:
+#  name: resnet12
+#  kwargs:
+#    drop_rate: 0.0
+#    keep_prob: 0.0
+#    avg_pool: False
+#    is_flatten: False
+#    maxpool_last2: False
+
+classifier:
+  name: MCL
+  kwargs:
+    encoding: Grid
+    gamma: 20.0
+    gamma2: 10.0
+    katz_factor: 0.5
+
+epoch: 30
+train_episode: 20000
+test_episode: 1000
+episode_size: 4
+workers: 2
+
+optimizer:
+  name: Adam
+  kwargs:
+    lr: 0.001
+  other: ~
+
+lr_scheduler:
+  kwargs:
+    gamma: 0.1
+    step_size: 10
+  name: StepLR

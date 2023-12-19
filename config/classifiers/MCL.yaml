@@ -1,0 +1,7 @@
+classifier:
+  name: MCL
+  kwargs:
+    encoding: FCN
+    gamma: 20.0
+    gamma2: 10.0
+    katz_factor: 0.5
